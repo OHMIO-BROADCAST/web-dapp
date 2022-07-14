@@ -86,7 +86,7 @@ function Account() {
                 key={key}
                 onClick={async () => {
                   try {
-                    await authenticate({ provider: connectorId, chainId: '0x89' });
+                    await authenticate({ provider: connectorId, chainId: 0x89 });
                     window.localStorage.setItem("connectorId", connectorId);
                     setIsAuthModalVisible(false);
                   } catch (e) {
@@ -98,7 +98,7 @@ function Account() {
                           method: "wallet_addEthereumChain",
                           params: [
                             {
-                              chainId: "0x89",
+                              chainId: 0x89,
                               chainName: "Polygon Mainnet",
                               rpcUrls: ["https://rpc-mainnet.maticvigil.com/"],
                               nativeCurrency: {
