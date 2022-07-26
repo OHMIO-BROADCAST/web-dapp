@@ -55,14 +55,14 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    name: "ROBOT LICENSE",
+    name: "OHMIO BOX",
     category: "robot",
     rtlName: "صفحات",
     state: "pageCollapse",
     views: [
       {
         path: "/contract",
-        name: "Purchase",
+        name: "My Boxes",
         rtlName: "لوحة القيادة",
         icon: <RocketIcon color='inherit' />,
         component: Contract,
@@ -70,7 +70,7 @@ var dashRoutes = [
       },
       {
         path: "/purchase-license",
-        name: "Refeers",
+        name: "Explorer",
         rtlName: "لوحة القيادة",
         icon: <StarIcon color='inherit' />,
         component: QuickStart,
@@ -93,14 +93,30 @@ var dashRoutes = [
         component: Buy,
         layout: "/admin",
       },
-      /* {
+      {
         path: "/dex",
         name: "Exchange",
         rtlName: "لوحة القيادة",
         icon: <ExchangeIcon color='inherit' />,
         component: DEX,
         layout: "/admin",
-      }, */
+      },
+      {
+        path: "/dex",
+        name: "Staking/Farming",
+        rtlName: "لوحة القيادة",
+        icon: <ExchangeIcon color='inherit' />,
+        component: DEX,
+        layout: "/admin",
+      },
+      {
+        path: "/balances",
+        name: "Balances",
+        rtlName: "لوحة القيادة",
+        icon: <BalanceIcon color='inherit' />,
+        component: ERC20Balance,
+        layout: "/admin",
+      },
       {
         path: "/balances",
         name: "Balances",
