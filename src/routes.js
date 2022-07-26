@@ -69,7 +69,7 @@ var dashRoutes = [
         layout: "/admin",
       },
       {
-        path: "/purchase-license",
+        path: "/explorer",
         name: "Explorer",
         rtlName: "لوحة القيادة",
         icon: <StarIcon color='inherit' />,
