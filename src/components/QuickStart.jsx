@@ -10,6 +10,7 @@ import Address from "components/Address/Address";
 import {
   Flex
 } from "@chakra-ui/react";
+import Maps from "./Maps/Maps";
 
 const { Text } = Typography;
 
@@ -105,7 +106,7 @@ export default function QuickStart({ isServerInfo }) {
               alignItems: 'center'
             }}
           >
-            <Text>Coming Soon</Text>
+            <Maps />
           </div>
 
         </Card>
