@@ -66,7 +66,7 @@ export default function OriginalContract() {
                             alignItems: "center",
                         }}
                     >
-                        Your contract: {contract?.contractName}
+                        Your contract: Buy OHMIO BOX
                     </div>
                 }
                 size="large"
