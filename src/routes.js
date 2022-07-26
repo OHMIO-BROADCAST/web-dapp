@@ -105,16 +105,8 @@ var dashRoutes = [
         path: "/dex",
         name: "Staking/Farming",
         rtlName: "لوحة القيادة",
-        icon: <ExchangeIcon color='inherit' />,
+        icon: <StatsIcon color='inherit' />,
         component: DEX,
-        layout: "/admin",
-      },
-      {
-        path: "/balances",
-        name: "Balances",
-        rtlName: "لوحة القيادة",
-        icon: <BalanceIcon color='inherit' />,
-        component: ERC20Balance,
         layout: "/admin",
       },
       {
