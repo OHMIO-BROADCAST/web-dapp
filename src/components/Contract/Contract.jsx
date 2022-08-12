@@ -81,7 +81,7 @@ export default function Contract() {
             }}
           >
             <Text>Please connect Wallet</Text>
-            <SuggestConnectWallet />
+            {/* <SuggestConnectWallet /> */}
           </div>
 
         </Card>

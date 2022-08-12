@@ -109,7 +109,7 @@ export default function Dashboard() {
             }}
           >
             <Text>Please connect Wallet</Text>
-            <SuggestConnectWallet />
+            {/* <SuggestConnectWallet /> */}
           </div>
 
         </Card>

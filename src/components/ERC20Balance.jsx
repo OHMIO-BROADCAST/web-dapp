@@ -122,7 +122,7 @@ function ERC20Balance(props) {
             }}
           >
             <Text>Please connect Wallet</Text>
-            <SuggestConnectWallet />
+            {/* <SuggestConnectWallet /> */}
           </div>
 
         </Card>

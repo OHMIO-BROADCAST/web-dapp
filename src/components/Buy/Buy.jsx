@@ -75,7 +75,7 @@ function Buy() {
             }}
           >
             <Text>Please connect Wallet</Text>
-            <SuggestConnectWallet />
+            {/* <SuggestConnectWallet /> */}
           </div>
 
         </Card>

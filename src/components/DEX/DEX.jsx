@@ -222,7 +222,7 @@ function DEX({ chain, customTokens = {} }) {
             }}
           >
             <Text>Please connect Wallet</Text>
-            <SuggestConnectWallet />
+            {/* <SuggestConnectWallet /> */}
           </div>
 
         </Card>
