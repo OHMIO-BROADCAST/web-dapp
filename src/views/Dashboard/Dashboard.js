@@ -42,6 +42,7 @@ import {
 } from "variables/charts";
 import { pageVisits, socialTraffic } from "variables/general";
 import { useMoralis } from "react-moralis";
+import SuggestConnectWallet from "components/Animations/SuggestConnectWallet";
 
 const styles = {
   title: {
@@ -103,10 +104,12 @@ export default function Dashboard() {
               height: "300px",
               justifyContent: 'center',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexDirection: 'column'
             }}
           >
             <Text>Please connect Wallet</Text>
+            <SuggestConnectWallet />
           </div>
 
         </Card>

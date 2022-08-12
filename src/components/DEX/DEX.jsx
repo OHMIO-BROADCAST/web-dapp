@@ -11,6 +11,7 @@ import { Flex, Button } from "@chakra-ui/react";
 import { Card, Image, Input, InputNumber, Modal } from "antd";
 import Address from "../Address/Address";
 import Blockie from "../Blockie";
+import SuggestConnectWallet from "components/Animations/SuggestConnectWallet";
 // import { useOneInchQuote } from "react-moralis";
 
 
@@ -216,10 +217,12 @@ function DEX({ chain, customTokens = {} }) {
               height: "300px",
               justifyContent: 'center',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexDirection: 'column'
             }}
           >
             <Text>Please connect Wallet</Text>
+            <SuggestConnectWallet />
           </div>
 
         </Card>

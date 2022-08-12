@@ -14,6 +14,7 @@ import {
 // Custom components
 import Card from "../Card/Card.js";
 import { Button } from "antd";
+import SuggestConnectWallet from 'components/Animations/SuggestConnectWallet';
 
 const styles = {
   title: {
@@ -69,10 +70,12 @@ function Buy() {
               height: "300px",
               justifyContent: 'center',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexDirection: 'column'
             }}
           >
             <Text>Please connect Wallet</Text>
+            <SuggestConnectWallet />
           </div>
 
         </Card>

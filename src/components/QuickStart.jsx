@@ -11,6 +11,7 @@ import {
   Flex
 } from "@chakra-ui/react";
 import Maps from "./Maps/Maps";
+import SuggestConnectWallet from "./Animations/SuggestConnectWallet";
 
 const { Text } = Typography;
 
@@ -71,10 +72,12 @@ export default function QuickStart({ isServerInfo }) {
               height: "300px",
               justifyContent: 'center',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexDirection: 'column'
             }}
           >
             <Text>Please connect Wallet</Text>
+            <SuggestConnectWallet />
           </div>
 
         </Card>

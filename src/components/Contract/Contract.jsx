@@ -19,6 +19,7 @@ import Card from "../../components/Card/Card.js";
 import Blockie from "../Blockie";
 import ContractBuyABI from 'contracts/LicencseToken.json';
 import OriginalContract from "./OriginalContract";
+import SuggestConnectWallet from "components/Animations/SuggestConnectWallet";
 
 export default function Contract() {
   const { Moralis, chainId, isAuthenticated, account } = useMoralis();
@@ -75,10 +76,12 @@ export default function Contract() {
               height: "300px",
               justifyContent: 'center',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexDirection: 'column'
             }}
           >
             <Text>Please connect Wallet</Text>
+            <SuggestConnectWallet />
           </div>
 
         </Card>

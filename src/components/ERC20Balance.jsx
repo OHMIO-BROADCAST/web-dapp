@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Card from "../components/Card/Card.js";
 import Address from "./Address/Address";
+import SuggestConnectWallet from './Animations/SuggestConnectWallet';
 
 function ERC20Balance(props) {
   const { data: assets } = useERC20Balances(props);
@@ -116,10 +117,12 @@ function ERC20Balance(props) {
               height: "300px",
               justifyContent: 'center',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexDirection: 'column'
             }}
           >
             <Text>Please connect Wallet</Text>
+            <SuggestConnectWallet />
           </div>
 
         </Card>
