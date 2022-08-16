@@ -86,7 +86,7 @@ function Account() {
                 key={key}
                 onClick={async () => {
                   try {
-                    await authenticate({ provider: connectorId, chainId: 0x89 });
+                    await authenticate({ provider: connectorId, chainId: 0x89, signingMessage: 'Authentication on OHMIO Descentralized App (DApp)' });
                     window.localStorage.setItem("connectorId", connectorId);
                     setIsAuthModalVisible(false);
                   } catch (e) {

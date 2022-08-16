@@ -8,10 +8,11 @@ import Address from "components/Address/Address";
 
 // Chakra imports
 import {
-  Flex
+  Flex, Grid
 } from "@chakra-ui/react";
 import Maps from "./Maps/Maps";
 import SuggestConnectWallet from "./Animations/SuggestConnectWallet";
+import Item from "./OhmioBox/Item";
 
 const { Text } = Typography;
 
@@ -64,7 +65,6 @@ export default function QuickStart({ isServerInfo }) {
         alignItems="center"
       ><Card
         style={styles.cardoffline}
-
       >
           <div
             style={{
@@ -86,34 +86,43 @@ export default function QuickStart({ isServerInfo }) {
   }
   else {
     return (
-      <Flex
-        direction="column"
-        pt={{ base: "120px", md: "75px" }}
-        alignContent="center"
-        alignItems="center"
-      ><Card
-        style={styles.card}
-        title={
-          <div style={styles.header}>
-            <Blockie scale={5} avatar currentWallet style />
-            <Address size="6" copyable />
-          </div>
-        }
+      <Grid
+        templateColumns='repeat(2, 1fr)'
+        gap={10}
       >
-          <div
-            style={{
-              width: "auto",
-              height: "300px",
-              justifyContent: 'center',
-              display: 'flex',
-              alignItems: 'center'
-            }}
-          >
-            <Maps />
-          </div>
-
-        </Card>
-      </Flex>
+        <Flex
+          direction="column"
+          pt={{ base: "120px", md: "75px" }}
+          alignContent="center"
+          alignItems="center"
+        ><Card
+          style={styles.card}
+          title={
+            <div style={styles.header}>
+              <Text>TV Transmitters</Text>
+            </div>
+          }
+        >
+            <Item />
+          </Card>
+        </Flex>
+        <Flex
+          direction="column"
+          pt={{ base: "120px", md: "75px" }}
+          alignContent="center"
+          alignItems="center"
+        ><Card
+          style={styles.card}
+          title={
+            <div style={styles.header}>
+              <Text>Radio Transmitters</Text>
+            </div>
+          }
+        >
+            <Item />
+          </Card>
+        </Flex>
+      </Grid>
     );
   }
 
