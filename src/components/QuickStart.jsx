@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Maps from "./Maps/Maps";
 import SuggestConnectWallet from "./Animations/SuggestConnectWallet";
-import Item from "./OhmioBox/Item";
+import ItemOhmioBox from "./OhmioBox/ItemOhmioBox";
 
 const { Text } = Typography;
 
@@ -103,7 +103,7 @@ export default function QuickStart({ isServerInfo }) {
             </div>
           }
         >
-            <Item />
+            <ItemOhmioBox />
           </Card>
         </Flex>
         <Flex
@@ -119,7 +119,7 @@ export default function QuickStart({ isServerInfo }) {
             </div>
           }
         >
-            <Item />
+            <ItemOhmioBox />
           </Card>
         </Flex>
       </Grid>

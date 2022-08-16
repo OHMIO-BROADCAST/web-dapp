@@ -8,7 +8,7 @@ import gatesairlogo from './examples/gatesair_logo.png'
 import gatesair_transmitter from './examples/uhf-transmitter-ga.png'
 
 
-function Item() {
+function ItemOhmioBox() {
     return (
         <>
             <div className="card">
@@ -46,4 +46,4 @@ function Item() {
     )
 }
 
-export default Item
+export default ItemOhmioBox;

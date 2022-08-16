@@ -31,7 +31,7 @@ export default function Footer(props) {
         </Text>
         <Link
           color='navy.400'
-          href='#'
+          href='https://ohmiobroadcast.io'
           target='_blank'>
           {document.documentElement.dir === "rtl"
             ? " توقيت الإبداعية"

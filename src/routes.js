@@ -76,13 +76,13 @@ var dashRoutes = [
         component: QuickStart,
         layout: "/admin",
       },
+
     ]
   },
 
   {
     name: "CRYPTO FUNCTIONS",
     category: "account",
-
     state: "pageCollapse",
     views: [
       {
