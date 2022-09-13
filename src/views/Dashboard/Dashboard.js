@@ -23,6 +23,7 @@ import {
 import React, { useEffect, useState } from "react";
 
 import Card from "components/Card/Card.js";
+import '../../theme/additions/card/transparent.css';
 import BarChart from "components/Charts/BarChart";
 import LineChart from "components/Charts/LineChart";
 import IconBox from "components/Icons/IconBox";
@@ -60,14 +61,7 @@ const styles = {
   timeline: {
     marginBottom: "-45px",
   },
-  cardoffline: {
-    boxShadow: "0 0.5rem 1.2rem rgb(189 197 209 / 20%)",
-    border: "1px solid #e7eaf3",
-    borderRadius: "1rem",
-    width: "450px",
-    fontSize: "16px",
-    fontWeight: "500",
-  },
+
 };
 
 export default function Dashboard() {
@@ -95,8 +89,12 @@ export default function Dashboard() {
         alignContent="center"
         alignItems="center"
       ><Card
-        style={styles.cardoffline}
-
+        style={{
+          width: "450px",
+          fontSize: "16px",
+          fontWeight: "500",
+        }}
+        className="transp"
       >
           <div
             style={{
@@ -105,10 +103,13 @@ export default function Dashboard() {
               justifyContent: 'center',
               display: 'flex',
               alignItems: 'center',
-              flexDirection: 'column'
+              flexDirection: 'column',
+              backgroundImage: {}
             }}
           >
-            <Text>Please connect Wallet</Text>
+            <img style={{ filter: 'none' }} src={require('../../assets/animations/gifohmio.gif')} alt="my-gif" />
+
+            <Text>Please Connect Wallet</Text>
             {/* <SuggestConnectWallet /> */}
           </div>
 

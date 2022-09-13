@@ -123,7 +123,7 @@ const App = ({ isServerInfo }) => {
               <Redirect to="/quickstart" />
             </Route>
             <Route path="/nonauthenticated">
-              <>Please login using the "Authenticate" button</>
+              <>Please login using the "ConnectWallet" button</>
             </Route>
           </Switch>
         </div>

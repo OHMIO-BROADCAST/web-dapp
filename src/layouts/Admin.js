@@ -29,6 +29,7 @@ import PanelContainer from "../components/Layout/PanelContainer";
 import PanelContent from "../components/Layout/PanelContent";
 import bgAdmin from "../assets/img/admin-background-violeta.png";
 import bgAdminVideo from "../assets/video/herovideo.mp4";
+import BackgroundDashboard from "components/Animations/Background/BackgroundDashboard";
 
 import LogoDark from '../assets/img/LogoTIPSparaDark.png';
 import LogoLight from '../assets/img/LogoTIPSparaLight.png';
@@ -117,14 +118,13 @@ export default function Dashboard(props) {
   return (
     <Box>
       <Box
-        minH='40vh'
+        style={{ height: '100px' }}
         w='100%'
         position='absolute'
-        bgImage={colorMode === "light" ? bgAdmin : "navy.900"}
-        bg={colorMode === "light" ? bgAdmin : "navy.900"}
-        bgSize='cover'
         top='0'
-      />
+      >
+        <BackgroundDashboard />
+      </Box>
       {/*   <video src={bgAdminVideo} type="video/mp4">
          <p>Your browser cannot play the provided video file.</p>
       </video> */}

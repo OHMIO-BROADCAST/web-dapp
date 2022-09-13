@@ -54,7 +54,7 @@ function Account() {
     return (
       <>
         <ChakraButton onClick={() => setIsAuthModalVisible(true)}>
-          <p style={styles.text}>Authenticate</p>
+          <p style={styles.text}>Connect Wallet</p>
         </ChakraButton>
         <Modal
           visible={isAuthModalVisible}

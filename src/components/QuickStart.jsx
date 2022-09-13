@@ -76,7 +76,9 @@ export default function QuickStart({ isServerInfo }) {
               flexDirection: 'column'
             }}
           >
-            <Text>Please connect Wallet</Text>
+            <img src={require('../assets/animations/gifohmio.gif')} alt="my-gif" />
+
+            <Text>Please Connect Wallet</Text>
             {/* <SuggestConnectWallet /> */}
           </div>
 

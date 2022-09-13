@@ -121,7 +121,7 @@ function ERC20Balance(props) {
               flexDirection: 'column'
             }}
           >
-            <Text>Please connect Wallet</Text>
+            <Text>Please Connect Wallet</Text>
             {/* <SuggestConnectWallet /> */}
           </div>
 

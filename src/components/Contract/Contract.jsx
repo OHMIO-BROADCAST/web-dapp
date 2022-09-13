@@ -80,7 +80,7 @@ export default function Contract() {
               flexDirection: 'column'
             }}
           >
-            <Text>Please connect Wallet</Text>
+            <Text>Please Connect Wallet</Text>
             {/* <SuggestConnectWallet /> */}
           </div>
 

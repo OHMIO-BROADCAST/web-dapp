@@ -30,6 +30,7 @@ import { SidebarHelp } from "components/Sidebar/SidebarHelp";
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { NavLink, useLocation } from "react-router-dom";
+import '../../theme/additions/card/transparent.css';
 
 
 
@@ -214,10 +215,9 @@ function Sidebar(props) {
 
   // SIDEBAR
   return (
-    <Box ref={mainPanel}>
+    <Box ref={mainPanel} >
       <Box display={{ sm: "none", xl: "block" }} position="fixed">
         <Box
-          bg={sidebarBg}
           transition={variantChange}
           w="260px"
           maxW="260px"
@@ -233,6 +233,7 @@ function Sidebar(props) {
           m={sidebarMargins}
           filter="drop-shadow(0px 5px 14px rgba(0, 0, 0, 0.05))"
           borderRadius={sidebarRadius}
+          className="fulltransp"
         >
           <Scrollbars
             autoHide
