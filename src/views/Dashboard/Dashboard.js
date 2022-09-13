@@ -94,7 +94,6 @@ export default function Dashboard() {
           fontSize: "16px",
           fontWeight: "500",
         }}
-        className="transp"
       >
           <div
             style={{
