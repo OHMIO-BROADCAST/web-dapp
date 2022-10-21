@@ -36,14 +36,21 @@ export function SidebarHelp(props) {
           Please check our app.
         </Text>
       </Flex>
-      <Link href='https://play.google.com/' target={"_blank"} minW='100%'>
+      <Link onClick={() => {
+        Swal.fire({
+          text: 'Stay tune',
+          title: 'Coming soon!',
+          icon: 'success'
+        })
+      }}
+        minW='100%'>
         <Button variant='primary' minW='100%'>
           Download Android
         </Button>
       </Link>
       <Link onClick={() => {
         Swal.fire({
-          text: 'Stay tune, currently only supports iOS',
+          text: 'Stay tune',
           title: 'Coming soon!',
           icon: 'success'
         })

@@ -291,13 +291,13 @@ export default function Dashboard() {
           maxW={{ sm: "320px", md: "100%" }}>
           <Flex direction='column' mb='40px' p='28px 0px 0px 22px'>
             <Text color='#fff' fontSize='lg' fontWeight='bold' mb='6px'>
-              Sales Overview
+              Power Consumption (kW/hour)
             </Text>
             <Text color='#fff' fontSize='sm'>
               <Text as='span' color='green.400' fontWeight='bold'>
                 (+5) more{" "}
               </Text>
-              in 2022
+              in this month
             </Text>
           </Flex>
           <Box minH='300px'>
