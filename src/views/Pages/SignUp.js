@@ -423,7 +423,7 @@ function SignUp() {
                     </div>
 
                     <FormLabel ms='4px' fontSize='sm' fontWeight='bold'>
-                      Email <FormLabel ms='4px' fontSize='sm' fontWeight='thin'>(Use the same in your FXWinning Account)</FormLabel>
+                      Email
                     </FormLabel>
                     <Input
                       variant='auth'
