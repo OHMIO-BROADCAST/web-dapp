@@ -32,6 +32,8 @@ import bgAdmin from "../assets/img/admin-background-violeta.png";
 import LogoDark from '../assets/img/LogoTIPSparaDark.png';
 import LogoLight from '../assets/img/LogoTIPSparaLight.png';
 import { useMoralis } from "react-moralis";
+import BackgroundDashboard from "components/Animations/Background/BackgroundDashboard";
+
 
 
 export default function Dashboard(props) {
@@ -131,14 +133,13 @@ export default function Dashboard(props) {
     return (
       <Box>
         <Box
-          minH='40vh'
+          style={{ height: '100px' }}
           w='100%'
           position='absolute'
-          bgImage={colorMode === "light" ? bgAdmin : "none"}
-          bg={colorMode === "light" ? bgAdmin : "navy.900"}
-          bgSize='cover'
           top='0'
-        />
+        >
+          <BackgroundDashboard />
+        </Box>
         <Sidebar
           routes={routes}
           logo={

@@ -2,6 +2,7 @@
 import { BellIcon } from "@chakra-ui/icons";
 // Chakra Imports
 import {
+  Avatar,
   Box, Button,
   Flex,
   Menu,
@@ -14,6 +15,9 @@ import {
 import avatar1 from "assets/img/avatars/avatar1.png";
 import avatar2 from "assets/img/avatars/avatar2.png";
 import avatar3 from "assets/img/avatars/avatar3.png";
+import { useMoralis } from "react-moralis";
+
+
 // Custom Icons
 import { ArgonLogoDark, ArgonLogoLight, ChakraLogoDark, ChakraLogoLight, ProfileIcon, SettingsIcon } from "components/Icons/Icons";
 // Custom Components
@@ -27,6 +31,8 @@ import Account from "components/Account/Account";
 import Chains from "components/Chains";
 import TokenPrice from "components/TokenPrice";
 import NativeBalance from "components/NativeBalance";
+import { ItemContentProfile } from "components/Menu/ItemContentProfile";
+import Swal from "sweetalert2";
 
 export default function HeaderLinks(props) {
   const {
@@ -38,6 +44,8 @@ export default function HeaderLinks(props) {
     onOpen,
     ...rest
   } = props;
+
+  const { Moralis, isAuthenticated, account } = useMoralis();
 
   const { colorMode } = useColorMode();
 
@@ -69,6 +77,7 @@ export default function HeaderLinks(props) {
         w='18px'
         h='18px'
       /> */}
+
       <Chains />
       {/*  <TokenPrice
         address="0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
@@ -79,30 +88,79 @@ export default function HeaderLinks(props) {
       {/* <NativeBalance /> */}
 
       <Account me='16px' />
-      {/* <NavLink to='/auth/signin'>
-        <Button
-          ms='0px'
-          px='0px'
-          me={{ sm: "2px", md: "16px" }}
-          color={navbarIcon}
-          variant='no-effects'
-          rightIcon={
-            document.documentElement.dir ? (
-              ""
-            ) : (
-              <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
-            )
-          }
-          leftIcon={
-            document.documentElement.dir ? (
-              <ProfileIcon color={navbarIcon} w='22px' h='22px' me='0px' />
-            ) : (
-              ""
-            )
-          }>
-          <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
-        </Button>
-      </NavLink> */}
+      <Menu>
+        <MenuButton marginLeft={'1rem'}>
+          <BellIcon color={navbarIcon} w='18px' h='18px' />
+        </MenuButton>
+        <MenuList p='16px 8px' bg={menuBg}>
+          <Flex flexDirection='column'>
+            <MenuItem borderRadius='8px' mb='10px'>
+              <ItemContent
+                time='13 minutes ago'
+                info='from Alicia'
+                boldInfo='New Message'
+                aName='Alicia'
+                aSrc={avatar1}
+              />
+            </MenuItem>
+            <MenuItem borderRadius='8px' mb='10px'>
+              <ItemContent
+                time='2 days ago'
+                info='by Josh Henry'
+                boldInfo='New Album'
+                aName='Josh Henry'
+                aSrc={avatar2}
+              />
+            </MenuItem>
+            <MenuItem borderRadius='8px'>
+              <ItemContent
+                time='3 days ago'
+                info='Payment succesfully completed!'
+                boldInfo=''
+                aName='Kara'
+                aSrc={avatar3}
+              />
+            </MenuItem>
+          </Flex>
+        </MenuList>
+      </Menu>
+      <Menu>
+        <MenuButton marginLeft={'1rem'}>
+          <Avatar color={navbarIcon} w='2.3rem' h='2.3rem' me='0px' />
+        </MenuButton>
+        <MenuList p='16px 8px' bg={menuBg}>
+          <Flex flexDirection='column'>
+            <MenuItem borderRadius='8px' mb='10px'>
+              <ItemContentProfile
+                boldInfo='Profile'
+                aSrc={avatar1}
+              />
+            </MenuItem>
+            <MenuItem borderRadius='8px' mb='10px'>
+              <ItemContentProfile
+                boldInfo='Settings'
+                aSrc={avatar2}
+              />
+            </MenuItem>
+            <MenuItem borderRadius='8px'
+              onClick={async () => {
+                await Moralis.User.logOut()
+                  .then(() => {
+                    Swal.fire("Log Out Success", '', 'info')
+                  });
+                console.log('User Logout')
+                window.location.reload()
+              }}>
+              <ItemContentProfile
+                boldInfo='Log Out'
+                aSrc={avatar3}
+
+              />
+            </MenuItem>
+          </Flex>
+        </MenuList>
+      </Menu>
+
 
       <SidebarResponsive
         hamburgerColor={"white"}
@@ -140,42 +198,7 @@ export default function HeaderLinks(props) {
         {...rest}
       />
 
-      {/* <Menu>
-        <MenuButton>
-          <BellIcon color={navbarIcon} w='18px' h='18px' />
-        </MenuButton>
-        <MenuList p='16px 8px' bg={menuBg}>
-          <Flex flexDirection='column'>
-            <MenuItem borderRadius='8px' mb='10px'>
-              <ItemContent
-                time='13 minutes ago'
-                info='from Alicia'
-                boldInfo='New Message'
-                aName='Alicia'
-                aSrc={avatar1}
-              />
-            </MenuItem>
-            <MenuItem borderRadius='8px' mb='10px'>
-              <ItemContent
-                time='2 days ago'
-                info='by Josh Henry'
-                boldInfo='New Album'
-                aName='Josh Henry'
-                aSrc={avatar2}
-              />
-            </MenuItem>
-            <MenuItem borderRadius='8px'>
-              <ItemContent
-                time='3 days ago'
-                info='Payment succesfully completed!'
-                boldInfo=''
-                aName='Kara'
-                aSrc={avatar3}
-              />
-            </MenuItem>
-          </Flex>
-        </MenuList>
-      </Menu> */}
-    </Flex>
+
+    </Flex >
   );
 }
