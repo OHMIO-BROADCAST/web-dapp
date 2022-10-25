@@ -33,7 +33,7 @@ import LogoDark from '../assets/img/LogoTIPSparaDark.png';
 import LogoLight from '../assets/img/LogoTIPSparaLight.png';
 import { useMoralis } from "react-moralis";
 import BackgroundDashboard from "components/Animations/Background/BackgroundDashboard";
-
+import RainbowComponent from "components/Rainbow/RainbowComponent";
 
 
 export default function Dashboard(props) {
@@ -139,6 +139,7 @@ export default function Dashboard(props) {
           top='0'
         >
           <BackgroundDashboard />
+          {/* <RainbowComponent /> */}
         </Box>
         <Sidebar
           routes={routes}

@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 
-import './Rainbow.css';
-import './Rainbow.js';
 
 
 function RainbowComponent() {
 
-    useEffect(() => {
-        return () => {
-
-        }
-    }, [])
-
     return (
-        <canvas id="canvasrainbow" className="canvasrainbow" width="350" height="250" />
+        <iframe
+            height={300}
+            style={{ width: "100%" }}
+            scrolling="no"
+            src="https://codepen.io/atomauro/embed/oNyNaXx?default-tab=result"
+            frameBorder="no"
+            loading="lazy"
+            allowFullScreen="true"
+        />
     )
 }
 
