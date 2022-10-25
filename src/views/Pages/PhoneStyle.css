@@ -1,0 +1,10 @@
+.phonecontainer {
+  height: 3rem;
+  width: 100%;
+}
+
+.phoneinput {
+  font-size: small;
+  height: 3rem;
+  width: 100%;
+}

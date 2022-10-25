@@ -19,6 +19,9 @@ import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import routes from "routes.js";
+
+import LogoTIPSparaLight from '../../assets/img/logowhite.png';
+
 export default function AuthNavbar(props) {
   const { logo, logoText, secondary, ...rest } = props;
   const { colorMode } = useColorMode();
@@ -48,11 +51,8 @@ export default function AuthNavbar(props) {
       alignItems="center"
       color={mainText}
     >
-      <Stack direction="row" spacing="12px" align="center" justify="center">
-        <ArgonLogoLight w="74px" h="27px" />
-        <Box w="1px" h="20px" bg={"white"} />
-        <ChakraLogoBlue w="82px" h="21px" />
-      </Stack>
+      <img src={LogoTIPSparaLight} style={{ width: "10rem" }} />
+
       <Text fontsize="sm" mt="3px">
         {logoText}
       </Text>
@@ -61,7 +61,7 @@ export default function AuthNavbar(props) {
   hamburgerColor = { base: "white" };
   var linksAuth = (
     <HStack display={{ sm: "none", lg: "flex" }}>
-      <NavLink to="/admin/dashboard">
+      {/*  <NavLink to="/admin/dashboard">
         <Button
           fontSize="sm"
           ms="0px"
@@ -88,7 +88,7 @@ export default function AuthNavbar(props) {
         >
           <Text>Profile</Text>
         </Button>
-      </NavLink>
+      </NavLink> */}
       <NavLink to="/auth/signup">
         <Button
           fontSize="sm"
@@ -160,9 +160,9 @@ export default function AuthNavbar(props) {
                 justify="center"
               >
                 {colorMode === "dark" ? (
-                  <ArgonLogoLight w="74px" h="27px" />
+                  <LogoTIPSparaLight w="74px" h="27px" />
                 ) : (
-                  <ArgonLogoDark w="74px" h="27px" />
+                  <LogoTIPSparaLight w="74px" h="27px" />
                 )}
 
               </Stack>
@@ -195,7 +195,7 @@ export default function AuthNavbar(props) {
           />
         </Box>
         {linksAuth}
-        <Link href="https://creative-tim.com/product/argon-dashboard-chakra">
+        {/* <NavLink to="/admin/dashboard">
           <Button
             bg={bgButton}
             color={colorButton}
@@ -207,9 +207,9 @@ export default function AuthNavbar(props) {
               lg: "flex",
             }}
           >
-            Free Download
+            Take a Tour
           </Button>
-        </Link>
+        </NavLink> */}
       </Flex>
     </Flex>
   );

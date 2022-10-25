@@ -44,6 +44,7 @@ import {
   BillIcon
 } from "components/Icons/Icons";
 import Buy from 'components/Buy';
+import ForgotPassword from 'views/Pages/ForgotPassword';
 
 var dashRoutes = [
   {
@@ -160,12 +161,20 @@ var dashRoutes = [
     component: RTLPage,
     layout: "/rtl",
   }, */
-  /*{
+  {
     path: "/signin",
     name: "Sign In",
     rtlName: "لوحة القيادة",
     icon: <DocumentIcon color='inherit' />,
     component: SignIn,
+    layout: "/auth",
+  },
+  {
+    path: "/forgot-password",
+    name: "Forgot Password",
+    rtlName: "لوحة القيادة",
+    icon: <DocumentIcon color='inherit' />,
+    component: ForgotPassword,
     layout: "/auth",
   },
   {
@@ -175,6 +184,6 @@ var dashRoutes = [
     icon: <RocketIcon color='inherit' />,
     component: SignUp,
     layout: "/auth",
-  },*/
+  }
 ];
 export default dashRoutes;

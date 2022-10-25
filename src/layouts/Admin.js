@@ -18,7 +18,7 @@ import {
 // Layout components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
 // Custom Chakra theme
@@ -28,11 +28,10 @@ import MainPanel from "../components/Layout/MainPanel";
 import PanelContainer from "../components/Layout/PanelContainer";
 import PanelContent from "../components/Layout/PanelContent";
 import bgAdmin from "../assets/img/admin-background-violeta.png";
-import bgAdminVideo from "../assets/video/herovideo.mp4";
-import BackgroundDashboard from "components/Animations/Background/BackgroundDashboard";
 
 import LogoDark from '../assets/img/LogoTIPSparaDark.png';
 import LogoLight from '../assets/img/LogoTIPSparaLight.png';
+import { useMoralis } from "react-moralis";
 
 
 export default function Dashboard(props) {
@@ -96,7 +95,7 @@ export default function Dashboard(props) {
       if (prop.category === "account") {
         return getRoutes(prop.views);
       }
-      if (prop.category === "robot") {
+      if (prop.category === "robots") {
         return getRoutes(prop.views);
       }
       if (prop.layout === "/admin") {
@@ -115,95 +114,114 @@ export default function Dashboard(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   document.documentElement.dir = "ltr";
   // Chakra Color Mode
-  return (
-    <Box>
-      <Box
-        style={{ height: '100px' }}
-        w='100%'
-        position='absolute'
-        top='0'
-      >
-        <BackgroundDashboard />
-      </Box>
-      {/*   <video src={bgAdminVideo} type="video/mp4">
-         <p>Your browser cannot play the provided video file.</p>
-      </video> */}
-      <Sidebar
-        routes={routes}
-        logo={
-          <Stack direction='row' spacing='12px' align='center' justify='center'>
-            {colorMode === "dark" ? (
-              <Image src={LogoDark} style={{ width: '120px', height: 'auto' }} />
-            ) : (
-              <Image src={LogoLight} style={{ width: '120px', height: 'auto' }} />
-            )}
 
-          </Stack>
-        }
-        /* logo={
-          <Stack direction='row' spacing='12px' align='center' justify='center'>
-            {colorMode === "dark" ? (
-              <ArgonLogoLight w='74px' h='27px' />
-            ) : (
-              <ArgonLogoDark w='74px' h='27px' />
-            )}
-            <Box
-              w='1px'
-              h='20px'
-              bg={colorMode === "dark" ? "white" : "gray.700"}
-            />
-            {colorMode === "dark" ? (
-              <ChakraLogoLight w='82px' h='21px' />
-            ) : (
-              <ChakraLogoDark w='82px' h='21px' />
-            )}
-          </Stack>
-        } */
-        display='none'
-        {...rest}
-      />
-      <MainPanel
-        w={{
-          base: "100%",
-          xl: "calc(100% - 275px)",
-        }}>
-        <Portal>
-          <AdminNavbar
-            onOpen={onOpen}
-            brandText={getActiveRoute(routes)}
-            secondary={getActiveNavbar(routes)}
-            fixed={fixed}
-            {...rest}
-          />
-        </Portal>
-        {getRoute() ? (
-          <PanelContent>
-            <PanelContainer>
-              <Switch>
-                {getRoutes(routes)}
-                <Redirect from='/admin' to='/dashboard' />
-              </Switch>
-            </PanelContainer>
-          </PanelContent>
-        ) : null}
-        <Footer />
-        <Portal>
-          <FixedPlugin
-            secondary={getActiveNavbar(routes)}
-            fixed={fixed}
-            onOpen={onOpen}
-          />
-        </Portal>
-        <Configurator
-          secondary={getActiveNavbar(routes)}
-          isOpen={isOpen}
-          onClose={onClose}
-          isChecked={fixed}
-          onSwitch={(value) => {
-            setFixed(value);
-          }}
+
+
+  const { Moralis, isAuthenticated, isInitialized, account } = useMoralis();
+
+  const [address, setAddress] = useState();
+
+  useEffect(() => {
+    setAddress((isAuthenticated && account));
+  }, [account, isAuthenticated]);
+
+
+  if (isAuthenticated) {
+
+    return (
+      <Box>
+        <Box
+          minH='40vh'
+          w='100%'
+          position='absolute'
+          bgImage={colorMode === "light" ? bgAdmin : "none"}
+          bg={colorMode === "light" ? bgAdmin : "navy.900"}
+          bgSize='cover'
+          top='0'
         />
-      </MainPanel>
-    </Box>
-  );
+        <Sidebar
+          routes={routes}
+          logo={
+            <Stack direction='row' spacing='10px' align='center' justify='center'>
+              {colorMode === "dark" ? (
+                <Image src={LogoDark} style={{ width: '10rem', height: 'auto' }} />
+              ) : (
+                <Image src={LogoLight} style={{ width: '10rem', height: 'auto' }} />
+              )}
+
+            </Stack>
+          }
+          /* logo={
+            <Stack direction='row' spacing='12px' align='center' justify='center'>
+              {colorMode === "dark" ? (
+                <ArgonLogoLight w='74px' h='27px' />
+              ) : (
+                <ArgonLogoDark w='74px' h='27px' />
+              )}
+              <Box
+                w='1px'
+                h='20px'
+                bg={colorMode === "dark" ? "white" : "gray.700"}
+              />
+              {colorMode === "dark" ? (
+                <ChakraLogoLight w='82px' h='21px' />
+              ) : (
+                <ChakraLogoDark w='82px' h='21px' />
+              )}
+            </Stack>
+          } */
+          display='none'
+          {...rest}
+        />
+        <MainPanel
+          w={{
+            base: "100%",
+            xl: "calc(100% - 275px)",
+          }}>
+          <Portal>
+            <AdminNavbar
+              onOpen={onOpen}
+              brandText={getActiveRoute(routes)}
+              secondary={getActiveNavbar(routes)}
+              fixed={fixed}
+              {...rest}
+            />
+          </Portal>
+          {getRoute() ? (
+            <PanelContent>
+              <PanelContainer>
+                <Switch>
+                  {getRoutes(routes)}
+                  <Redirect from='/admin' to='/admin/dashboard' />
+                </Switch>
+              </PanelContainer>
+            </PanelContent>
+          ) : null}
+          <Footer />
+          <Portal>
+            <FixedPlugin
+              secondary={getActiveNavbar(routes)}
+              fixed={fixed}
+              onOpen={onOpen}
+            />
+          </Portal>
+          <Configurator
+            secondary={getActiveNavbar(routes)}
+            isOpen={isOpen}
+            onClose={onClose}
+            isChecked={fixed}
+            onSwitch={(value) => {
+              setFixed(value);
+            }}
+          />
+        </MainPanel>
+      </Box>
+    );
+  }
+  else {
+    return (<Redirect from='/admin' to='/auth/signin' />)
+  }
+
+
+
 }

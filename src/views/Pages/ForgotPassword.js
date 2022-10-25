@@ -32,7 +32,7 @@ import { useMoralis } from "react-moralis";
 import Swal from "sweetalert2";
 import './SignInAnimation.css';
 
-function SignIn() {
+function ForgotPassword() {
   // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
   const bgForm = useColorModeValue("white", "navy.800");
@@ -67,14 +67,6 @@ function SignIn() {
   }
 
 
-  function toggleVisiblePassword() {
-    var x = document.getElementById("passwordInput");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
-    }
-  }
 
   return (
     <Flex position='relative' mb='40px'>
@@ -114,51 +106,14 @@ function SignIn() {
               fontWeight='bold'
               textAlign='center'
               mb='22px'>
-              Log In With
+              Forgot Password
             </Text>
-            {/*  <HStack spacing='15px' justify='center' mb='22px'>
-
-
-              <Flex
-                justify='center'
-                align='center'
-                w='75px'
-                h='75px'
-                borderRadius='8px'
-                border={useColorModeValue("1px solid", "0px")}
-                borderColor='gray.200'
-                cursor='pointer'
-                transition='all .25s ease'
-                bg={bgIcons}
-                _hover={{ bg: bgIconsHover }}>
-                <Link href='#'>
-                  <Icon
-                    as={FaGoogle}
-                    color={colorIcons}
-                    w='30px'
-                    h='30px'
-                    _hover={{ filter: "brightness(120%)" }}
-                  />
-                </Link>
-              </Flex>
-            </HStack> 
-            <Text
-              fontSize='lg'
-              color='gray.400'
-              fontWeight='bold'
-              textAlign='center'
-              mb='22px'>
-              or
-            </Text>
-*/}
 
             <Formik
               initialValues={{ email: '', password: '' }}
               validationSchema={Yup.object({
                 email: Yup.string().email('Invalid email address')
-                  .required('Required'),
-                password: Yup.string()
-                  .required('Password is required')
+                  .required('Required')
               })}
               onChange={(e) => { console.log(e) }}
               onSubmit={async (values, { setSubmitting, resetForm }) => {
@@ -188,11 +143,9 @@ function SignIn() {
                  } */
 
                 login(
-                  values.email,
-                  values.password
+                  values.email
                 )
                   .then((response) => {
-
                     if (response) {
                       console.log("Access Granted", response)
                       setSubmitting(false);
@@ -308,39 +261,7 @@ function SignIn() {
                       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '1rem' }}>
                         <ErrorMessage name="email" style={{ paddingTop: '0' }} />
                       </div>
-                      <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-                        Password
-                      </FormLabel>
-                      <Input
-                        variant='auth'
-                        fontSize='sm'
-                        ms='4px'
-                        type='password'
-                        placeholder='Your password'
-                        size='lg'
-                        name="password"
-                        id="passwordInput"
-                        onChange={handleChange}
-                        value={values.password}
-                      />
-                      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', marginBottom: '1rem' }} >
-                        <ErrorMessage name="password" />
-                      </div>
-                      <FormControl
-                        display='flex'
-                        alignItems='center'
-                        mb='24px'>
-                        <Switch
-                          id='remember-login'
-                          colorScheme='navy'
-                          me='10px'
-                          name="togglePassword"
-                          type="checkbox"
-                          onChange={() => toggleVisiblePassword()} />
-                        <FormLabel htmlFor='remember-login' mb='0' fontWeight='normal'>
-                          Show Password
-                        </FormLabel>
-                      </FormControl>
+
                       <Flex
                         flexDirection='column'
                         justifyContent='center'
@@ -348,13 +269,13 @@ function SignIn() {
                         maxW='100%'
                         mt='0px'>
                         <Text color={textColor} fontWeight='medium'>
-                          Forgot Password?
+                          Sign In instead
                           <NavLink
                             color={titleColor}
                             to="/auth/forgot-password"
                             as='span'
                             ms='5px'
-                            href='#'
+                            href='/signin'
                             fontWeight='bold'>
                             <text style={{ textDecoration: 'underline', fontWeight: 'bold', marginLeft: '1rem' }}>Click Here</text>
 
@@ -369,7 +290,7 @@ function SignIn() {
                         h='45'
                         disabled={isSubmitting}
                         onClick={handleSubmit}>
-                        SIGN IN
+                        SEND RESET LINK
                       </Button>
                     </FormControl>
                   </form>
@@ -430,4 +351,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default ForgotPassword;
