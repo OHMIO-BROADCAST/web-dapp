@@ -12,9 +12,9 @@ import {
   useColorModeValue
 } from "@chakra-ui/react";
 // Assets
-import avatar1 from "assets/img/avatars/avatar1.png";
-import avatar2 from "assets/img/avatars/avatar2.png";
-import avatar3 from "assets/img/avatars/avatar3.png";
+import avatar1 from "assets/img/avatars/profile.png";
+import avatar2 from "assets/img/avatars/settings.png";
+import avatar3 from "assets/img/avatars/logout.png";
 import { useMoralis } from "react-moralis";
 
 
@@ -88,7 +88,7 @@ export default function HeaderLinks(props) {
       {/* <NativeBalance /> */}
 
       <Account me='16px' />
-      <Menu>
+      {/* <Menu>
         <MenuButton marginLeft={'1rem'}>
           <BellIcon color={navbarIcon} w='18px' h='18px' />
         </MenuButton>
@@ -123,7 +123,7 @@ export default function HeaderLinks(props) {
             </MenuItem>
           </Flex>
         </MenuList>
-      </Menu>
+      </Menu> */}
       <Menu>
         <MenuButton marginLeft={'1rem'}>
           <Avatar color={navbarIcon} w='2.3rem' h='2.3rem' me='0px' />

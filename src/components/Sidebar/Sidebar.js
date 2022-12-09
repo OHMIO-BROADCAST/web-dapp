@@ -10,6 +10,7 @@ import {
   DrawerContent,
   DrawerOverlay,
   Flex,
+  Image,
   Stack,
   Text,
   useColorMode,
@@ -30,6 +31,9 @@ import { SidebarHelp } from "components/Sidebar/SidebarHelp";
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { NavLink, useLocation } from "react-router-dom";
+
+
+import LogoLight from '../../assets/img/LogoTIPSparaLight.png';
 
 
 
@@ -57,7 +61,7 @@ function Sidebar(props) {
     let inactiveColor = useColorModeValue("gray.400", "gray.400");
     let sidebarActiveShadow = "0px 7px 11px rgba(0, 0, 0, 0.04)";
     return routes.map((prop, key) => {
-      if (prop.redirect) {
+      if (prop.redirect || prop.path === '/signin' || prop.path === '/signup' || prop.path === '/forgot-password') {
         return null;
       }
       if (prop.category) {
@@ -76,7 +80,7 @@ function Sidebar(props) {
                 sm: "10px",
                 xl: "16px",
               }}
-              py="12px"
+              py="0.3rem"
             >
               {document.documentElement.dir === "rtl"
                 ? prop.rtlName
@@ -106,7 +110,7 @@ function Sidebar(props) {
                 sm: "10px",
                 xl: "16px",
               }}
-              py="12px"
+              py="0.3rem"
               borderRadius="15px"
               _hover="none"
               w="100%"
@@ -128,7 +132,7 @@ function Sidebar(props) {
                     color="white"
                     h="30px"
                     w="30px"
-                    me="12px"
+                    me="0.3rem"
                     transition={variantChange}
                   >
                     {prop.icon}
@@ -153,7 +157,7 @@ function Sidebar(props) {
               mx={{
                 xl: "auto",
               }}
-              py="12px"
+              py="0.3rem"
               ps={{
                 sm: "10px",
                 xl: "16px",
@@ -179,7 +183,7 @@ function Sidebar(props) {
                     color="navy.500"
                     h="30px"
                     w="30px"
-                    me="12px"
+                    me="0.3rem"
                     transition={variantChange}
                   >
                     {prop.icon}
@@ -206,7 +210,7 @@ function Sidebar(props) {
   let sidebarRadius = "20px";
   let sidebarMargins = "0px";
   var brand = (
-    <Box pt={"25px"} mb="12px">
+    <Box pt={"25px"} mb="0.3rem">
       {logo}
       <HSeparator my="26px" />
     </Box>
@@ -310,7 +314,7 @@ export function SidebarResponsive(props) {
                 sm: "10px",
                 xl: "16px",
               }}
-              py="12px"
+              py="0.3rem"
             >
               {document.documentElement.dir === "rtl"
                 ? prop.rtlName
@@ -339,7 +343,7 @@ export function SidebarResponsive(props) {
                 sm: "10px",
                 xl: "16px",
               }}
-              py="12px"
+              py="0.3rem"
               borderRadius="15px"
               _hover="none"
               w="100%"
@@ -361,7 +365,7 @@ export function SidebarResponsive(props) {
                     color="white"
                     h="30px"
                     w="30px"
-                    me="12px"
+                    me="0.3rem"
                   >
                     {prop.icon}
                   </IconBox>
@@ -385,7 +389,7 @@ export function SidebarResponsive(props) {
               mx={{
                 xl: "auto",
               }}
-              py="12px"
+              py="0.3rem"
               ps={{
                 sm: "10px",
                 xl: "16px",
@@ -411,7 +415,7 @@ export function SidebarResponsive(props) {
                     color="navy.500"
                     h="30px"
                     w="30px"
-                    me="12px"
+                    me="0.3rem"
                   >
                     {prop.icon}
                   </IconBox>
@@ -434,8 +438,8 @@ export function SidebarResponsive(props) {
   //  BRAND
 
   var brand = (
-    <Box pt={"35px"} mb="8px">
-      {logo}
+    <Box pt={"35px"} mb="8px" pl={'1rem'}>
+      <Image src={LogoLight} style={{ width: '10rem', height: 'auto' }} />
       <HSeparator my="26px" />
     </Box>
   );
@@ -449,11 +453,13 @@ export function SidebarResponsive(props) {
       display={{ sm: "flex", xl: "none" }}
       ref={mainPanel}
       alignItems="center"
+      justifyContent={'space-between'}
     >
       <HamburgerIcon
         color={hamburgerColor}
-        w="18px"
-        h="18px"
+        w="2.5rem"
+        h="2.5rem"
+        ml={'1rem'}
         ref={btnRef}
         onClick={onOpen}
       />

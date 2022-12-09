@@ -6,6 +6,11 @@ import Billing from "views/Dashboard/Billing.js";
 import RTLPage from "views/RTL/RTLPage.js";
 import Profile from "views/Dashboard/Profile.js";
 import SignIn from "views/Pages/SignIn.js";
+import ForgotPassword from "views/Pages/ForgotPassword.js";
+
+import { GiFarmer } from 'react-icons/gi';
+import { MdOutlineTravelExplore } from 'react-icons/md';
+
 import SignUp from "views/Pages/SignUp.js";
 
 
@@ -43,45 +48,83 @@ import {
   BalanceIcon,
   BillIcon
 } from "components/Icons/Icons";
-import Buy from 'components/Buy';
-import ForgotPassword from 'views/Pages/ForgotPassword';
+import Maps3D from 'components/Maps/Maps3D';
+//import Buy from 'components/Buy';
+//import Signals from 'components/Signals/Signals';
 
 var dashRoutes = [
   {
     path: "/dashboard",
     name: "Home",
-    rtlName: "لوحة القيادة",
     icon: <HomeIcon color='inherit' />,
     component: Dashboard,
     layout: "/admin",
   },
   {
-    name: "OHMIO BOX",
-    category: "robot",
-    rtlName: "صفحات",
+    name: "OHMIO Box",
+    category: "robots",
     state: "pageCollapse",
     views: [
       {
         path: "/contract",
-        name: "My Boxes",
-        rtlName: "لوحة القيادة",
+        name: "My NFTs",
         icon: <RocketIcon color='inherit' />,
         component: Contract,
         layout: "/admin",
       },
       {
-        path: "/explorer",
-        name: "Explorer",
-        rtlName: "لوحة القيادة",
-        icon: <StarIcon color='inherit' />,
+        path: "/staking",
+        name: "Staking NFT",
+        icon: <GiFarmer color='inherit' />,
         component: QuickStart,
         layout: "/admin",
       },
-
+      {
+        path: "/explorer",
+        name: "Explorer",
+        icon: <MdOutlineTravelExplore color='inherit' />,
+        component: Maps3D,
+        layout: "/admin",
+      },
     ]
-  },
-
+  }/* ,
   {
+    name: "WITH FIAT",
+    category: "robots",
+    state: "pageCollapse",
+    views: [
+      {
+        path: "/purchase-payzen",
+        name: "Purchase",
+        icon: <CreditIcon color='inherit' />,
+        component: Tables,
+        layout: "/admin",
+      },
+      {
+        path: "/my-refeers-fiat",
+        name: "Refeers",
+        icon: <StatsIcon color='inherit' />,
+        component: Tables,
+        layout: "/admin",
+      }
+    ]
+  }, */
+  /* 
+  {
+    name: "INDEPENDET DISTRIBUTOR",
+    category: "distributor",
+    state: "pageCollapse",
+    views: [
+      {
+        path: "/distributors",
+        name: "My Refeer Link",
+        icon: <RocketIcon color='inherit' />,
+        component: Distributor,
+        layout: "/admin",
+      }
+    ]
+  }, */
+  ,/*  {
     name: "CRYPTO FUNCTIONS",
     category: "account",
     state: "pageCollapse",
@@ -89,59 +132,30 @@ var dashRoutes = [
       {
         path: "/buy-crypto",
         name: "Buy Crypto",
-        rtlName: "لوحة القيادة",
         icon: <CreditIcon color='inherit' />,
-        component: Buy,
-        layout: "/admin",
-      },
-      {
-        path: "/dex",
-        name: "Exchange",
-        rtlName: "لوحة القيادة",
-        icon: <ExchangeIcon color='inherit' />,
-        component: DEX,
-        layout: "/admin",
-      },
-      {
-        path: "/dex",
-        name: "Staking/Farming",
-        rtlName: "لوحة القيادة",
-        icon: <StatsIcon color='inherit' />,
-        component: DEX,
+        component: Tables,
         layout: "/admin",
       },
       {
         path: "/balances",
         name: "Balances",
-        rtlName: "لوحة القيادة",
         icon: <BalanceIcon color='inherit' />,
         component: ERC20Balance,
         layout: "/admin",
-      }]
-  },
-
-  /*   {
-      path: "/tables",
-      name: "Tables",
-      rtlName: "لوحة القيادة",
-      icon: <StatsIcon color='inherit' />,
-      component: Tables,
-      layout: "/admin",
-    }, */
-  /*{
-    path: "/billing",
-    name: "Billing",
-    rtlName: "لوحة القيادة",
-    icon: <BillIcon color='inherit' />,
-    component: Billing,
-    layout: "/admin",
-  },
+      } ]
+  }, */
   {
     name: "ACCOUNT",
     category: "account",
-    rtlName: "صفحات",
     state: "pageCollapse",
     views: [
+      /*     {
+            path: "/billing",
+            name: "Billing",
+            icon: <BillIcon color='inherit' />,
+            component: Billing,
+            layout: "/admin",
+          }, */
       {
         path: "/profile",
         name: "Profile",
@@ -152,19 +166,10 @@ var dashRoutes = [
         layout: "/admin",
       }
     ],
-  },*/
-  /* {
-    path: "/rtl-support-page",
-    name: "RTL",
-    rtlName: "آرتيإل",
-    icon: <SupportIcon color='inherit' />,
-    component: RTLPage,
-    layout: "/rtl",
-  }, */
+  },
   {
     path: "/signin",
     name: "Sign In",
-    rtlName: "لوحة القيادة",
     icon: <DocumentIcon color='inherit' />,
     component: SignIn,
     layout: "/auth",
@@ -172,7 +177,6 @@ var dashRoutes = [
   {
     path: "/forgot-password",
     name: "Forgot Password",
-    rtlName: "لوحة القيادة",
     icon: <DocumentIcon color='inherit' />,
     component: ForgotPassword,
     layout: "/auth",
@@ -180,10 +184,9 @@ var dashRoutes = [
   {
     path: "/signup",
     name: "Sign Up",
-    rtlName: "لوحة القيادة",
     icon: <RocketIcon color='inherit' />,
     component: SignUp,
     layout: "/auth",
-  }
+  },
 ];
 export default dashRoutes;

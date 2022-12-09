@@ -32,8 +32,8 @@ import bgAdmin from "../assets/img/admin-background-violeta.png";
 import LogoDark from '../assets/img/LogoTIPSparaDark.png';
 import LogoLight from '../assets/img/LogoTIPSparaLight.png';
 import { useMoralis } from "react-moralis";
+
 import BackgroundDashboard from "components/Animations/Background/BackgroundDashboard";
-import RainbowComponent from "components/Rainbow/RainbowComponent";
 
 
 export default function Dashboard(props) {
@@ -100,6 +100,9 @@ export default function Dashboard(props) {
       if (prop.category === "robots") {
         return getRoutes(prop.views);
       }
+      if (prop.category === "distributor") {
+        return getRoutes(prop.views);
+      }
       if (prop.layout === "/admin") {
         return (
           <Route
@@ -123,6 +126,8 @@ export default function Dashboard(props) {
 
   const [address, setAddress] = useState();
 
+  const currentUser = Moralis.User.current();
+
   useEffect(() => {
     setAddress((isAuthenticated && account));
   }, [account, isAuthenticated]);
@@ -139,7 +144,6 @@ export default function Dashboard(props) {
           top='0'
         >
           <BackgroundDashboard />
-          {/* <RainbowComponent /> */}
         </Box>
         <Sidebar
           routes={routes}
@@ -153,25 +157,6 @@ export default function Dashboard(props) {
 
             </Stack>
           }
-          /* logo={
-            <Stack direction='row' spacing='12px' align='center' justify='center'>
-              {colorMode === "dark" ? (
-                <ArgonLogoLight w='74px' h='27px' />
-              ) : (
-                <ArgonLogoDark w='74px' h='27px' />
-              )}
-              <Box
-                w='1px'
-                h='20px'
-                bg={colorMode === "dark" ? "white" : "gray.700"}
-              />
-              {colorMode === "dark" ? (
-                <ChakraLogoLight w='82px' h='21px' />
-              ) : (
-                <ChakraLogoDark w='82px' h='21px' />
-              )}
-            </Stack>
-          } */
           display='none'
           {...rest}
         />
@@ -189,6 +174,7 @@ export default function Dashboard(props) {
               {...rest}
             />
           </Portal>
+
           {getRoute() ? (
             <PanelContent>
               <PanelContainer>
@@ -199,6 +185,7 @@ export default function Dashboard(props) {
               </PanelContainer>
             </PanelContent>
           ) : null}
+
           <Footer />
           <Portal>
             <FixedPlugin
